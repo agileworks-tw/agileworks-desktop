@@ -14,7 +14,7 @@ onload = function() {
   };
 
   document.querySelector('#home').onclick = function() {
-    navigateTo('http://agileworks.tw/');
+    navigateTo('http://localhost:9083/');
   };
 
   document.querySelector('#reload').onclick = function() {
@@ -367,3 +367,5 @@ ipcRenderer.on('start vm res', function(event, arg) {
 ipcRenderer.on('stop vm res', function(event, arg) {
   alert(arg);
 });
+
+require('electron').webFrame.setZoomLevelLimits(1, 1)
