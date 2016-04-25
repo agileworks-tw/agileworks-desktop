@@ -11,3 +11,48 @@ app.on('ready', function() {
   mainWindow.loadUrl('file://' + __dirname + '/browser.html');
   // mainWindow.openDevTools();
 });
+
+
+const ipcMain = require('electron').ipcMain;
+const exec = require('child_process').exec;
+ipcMain.on('start vm', function(event, arg) {
+
+  var cmd = 'VBoxManage startvm AgileWorksReactNative --type headless';
+
+  exec(cmd, function(error, stdout, stderr) {
+    console.log(error, stdout, stderr);
+    var result = '';
+
+    if(stderr !== '')
+      result = 'vm 啟動失敗，請確認是否已啟動';
+    else
+      result = 'vm start sucess'
+
+    event.sender.send('start vm res', result);
+
+  });
+
+  event.returnValue = 'success';
+  return;
+});
+
+ipcMain.on('stop vm', function(event, arg) {
+
+  var cmd = 'VBoxManage controlvm AgileWorksReactNative acpipowerbutton';
+
+  exec(cmd, function(error, stdout, stderr) {
+    console.log(error, stdout, stderr);
+
+    var result = '';
+
+    if(stderr !== '')
+      result = stderr;
+    else
+      result = 'vm stop sucess'
+
+    event.sender.send('stop vm res', result);
+
+  });
+  event.returnValue = 'success';
+  return;
+});

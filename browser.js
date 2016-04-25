@@ -347,3 +347,23 @@ function closeBoxes() {
   closeZoomBox();
   closeFindBox();
 }
+
+
+const ipcRenderer = require('electron').ipcRenderer;
+function startVm(){
+
+  ipcRenderer.sendSync('start vm')
+  return;
+}
+function stopVm(){
+  ipcRenderer.sendSync('stop vm')
+  return;
+}
+
+ipcRenderer.on('start vm res', function(event, arg) {
+  alert(arg);
+});
+
+ipcRenderer.on('stop vm res', function(event, arg) {
+  alert(arg);
+});
