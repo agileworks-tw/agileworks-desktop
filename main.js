@@ -7,14 +7,19 @@ app.on('window-all-closed', function() {
 });
 
 app.on('ready', function() {
-  mainWindow = new BrowserWindow({width: 1024, height: 768 });
-  mainWindow.loadUrl('file://' + __dirname + '/browser.html');
+  mainWindow = new BrowserWindow({
+    width: 1024,
+    height: 768,
+    title: "AgileWorks - React Native"
+  });
+  mainWindow.loadURL('file://' + __dirname + '/browser.html');
   // mainWindow.openDevTools();
 });
 
 
 const ipcMain = require('electron').ipcMain;
 const exec = require('child_process').exec;
+
 ipcMain.on('start vm', function(event, arg) {
 
   var cmd = 'VBoxManage startvm AgileWorksReactNative --type headless';

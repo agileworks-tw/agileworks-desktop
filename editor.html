@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="favicon.ico" />
+<title>Editor</title>
+</head>
+<body>
+
+<div class="container">
+<div style="text-align:center;margin-top:100px;">
+<p>Please press "Start" button.</p>
+</div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="http://localhost:9083/static/mini_require.js"></script>
+<script type="text/javascript">
+if (typeof miniRequire != 'undefined') {
+  setTimeout(function() { location.href = 'http://localhost:9083/ide.html'; }, 1000);
+}
+else {
+  setTimeout(function() { location.reload(); }, 1000);
+}
+</script>
+</body>
+</html>

@@ -4,6 +4,11 @@ body {
   font-family: Lucida Grande, Arial, sans-serif;
 }
 
+
+.logo img {
+  height: 56px;
+}
+
 button,
 input {
   outline: none;
@@ -12,15 +17,25 @@ input {
 #controls {
   padding: 3px;
   border-bottom: solid 1px #ccc;
-  background-color: #eee;
+  background-color: #00A2B8;
+  background: -webkit-linear-gradient(bottom, #006F8E 0%, #00A2B8 99%);
+  color: #fff;
+  height: 72px;
 }
 
 #controls button,
 #controls input {
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 11px;
+  line-height: 100%;
   border-radius: 2px;
-  padding: 0 6px;
+  padding: 0;
+  width: 100px;
+  color: #eee;
+}
+
+#controls button img {
+  max-width: 32px;
+  text-align: center;
 }
 
 button,
@@ -33,7 +48,7 @@ button[disabled]:hover {
 button:hover,
 input[type="submit"]:hover {
   border-color: #ccc;
-  background: -webkit-linear-gradient(bottom, #cccccc 0%, #f2f2f2 99%);
+  background: -webkit-linear-gradient(bottom, #00A2B8 0%, #006F8E 99%);
 }
 
 button:active,
@@ -44,14 +59,16 @@ input[type="submit"]:active {
 
 /* These glyphs are on the small side, make them look more natural when
 compared to the back/forward buttons */
+/*
 #controls #home,
 #controls #terminate {
   font-size: 24px;
 }
+*/
 
-#controls #reload {
+/*#controls #reload {
   font-size: 20px;
-}
+}*/
 
 #controls #zoom,
 #controls #find {

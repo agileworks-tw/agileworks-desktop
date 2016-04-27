@@ -1,28 +1,53 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="browser.css">
     <script src="browser.js"></script>
   <body>
     <div id="controls">
-
-      <button style="display:none" id="back" title="Go Back" disabled="true">&#9664;</button>
-      <button style="display:none" id="forward" title="Go Forward" disabled="true">&#9654;</button>
-      <button id="home" title="Go Home">&#8962;</button>
-      <button id="reload" title="Reload">&#10227;</button>
-      <button id="startVM" title="start VM" onclick="startVm()">start VM</button>
-      <button id="stopVM" title="stop VM" onclick="stopVm()">stop VM</button>
-
-      <form style="display:none" id="location-form">
-        <div id="center-column">
-          <input id="location" type="text" value="http://localhost:9083/">
+      <button id="home" title="Go Home">
+        <div class="icon">
+          <img src="images/home.png" alt="home" />
         </div>
-        <input type="submit" value="Go">
-      </form>
+        Home
+      </button>
+      <button id="reload" title="Reload">
+        <div class="icon">
+          <img src="images/reload.png" alt="reload" />
+        </div>
+        Reload
+      </button>
+      <button id="startVM" title="Start VM" onclick="startVm()">
+        <div class="icon">
+          <img src="images/start.png" alt="startVM" />
+        </div>
+        Start
+      </button>
+      <button id="stopVM" title="Stop VM" onclick="stopVm()">
+        <div class="icon">
+          <img src="images/stop.png" alt="stopVM" />
+        </div>
+        Stop
+      </button>
+      <button id="about" title="About">
+        <div class="icon">
+          <img src="images/about.png" alt="about" />
+        </div>
+        About
+      </button>
+      <div style="width:100%;text-align:right;margin-right:50px;">
+        <div style="float:right; text-align:left">
+          <h3 style="line-height:160%;padding:0;margin:0;font-size:22px;">AgileWorks</h3>
+          <span style="font-size: 15px; font-family: sans; letter-spacing: 1px;">
+            軟體設計專業教學團隊
+          </span>
+        </div>
+        <div class="logo">
+          <img src="images/logo.png" alt="logo" />
+        </div>
 
-      <button id="zoom" title="Change Zoom">&#128270;</button>
-      <button id="find" title="Find in Page">&#128294;</button>
-
+      </div>
     </div>
 
     <div id="zoom-box">
@@ -45,7 +70,7 @@
       </form>
     </div>
 
-    <webview src="http://localhost:9083/" style="width:640px; height:480px"></webview>
+    <webview src="editor.html" disablewebsecurity></webview>
 
     <div id="sad-webview">
       <div id="sad-webview-icon">&#9762;</div>
