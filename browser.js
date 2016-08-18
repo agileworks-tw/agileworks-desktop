@@ -5,17 +5,17 @@ onload = function() {
   var webview = document.querySelector('webview');
   doLayout();
 
-  document.querySelector('#home').onclick = function() {
-    navigateTo('editor.html');
-  };
-
-  document.querySelector('#reload').onclick = function() {
-    if (isLoading) {
-      webview.stop();
-    } else {
-      webview.reload();
-    }
-  };
+  // document.querySelector('#home').onclick = function() {
+  //   navigateTo('editor.html');
+  // };
+  //
+  // document.querySelector('#reload').onclick = function() {
+  //   if (isLoading) {
+  //     webview.stop();
+  //   } else {
+  //     webview.reload();
+  //   }
+  // };
 
   // document.querySelector('#reload').addEventListener(
   //   'webkitAnimationIteration',
@@ -26,9 +26,9 @@ onload = function() {
   //   }
   // );
 
-  document.querySelector('#about').onclick = function() {
-    alert("AgileWorks x Trunk Studio 2015");
-  };
+  // document.querySelector('#about').onclick = function() {
+  //   alert("AgileWorks x Trunk Studio 2015");
+  // };
 
   webview.addEventListener('close', handleExit);
   webview.addEventListener('did-start-loading', handleLoadStart);
@@ -72,9 +72,11 @@ function handleExit(event) {
 }
 
 function resetExitedState() {
+  /*
   document.body.classList.remove('exited');
   document.body.classList.remove('crashed');
   document.body.classList.remove('killed');
+  */
 }
 
 function findBoxObscuresActiveMatch(findBoxRect, matchRect) {
@@ -118,15 +120,21 @@ function handleLoadRedirect(event) {
 
 const ipcRenderer = require('electron').ipcRenderer;
 
-function startVm(){
+function startVm() {
   navigateTo('editor.html');
   ipcRenderer.sendSync('start vm')
   return;
 }
 
-function stopVm(){
+function stopVm() {
   navigateTo('editor.html');
   ipcRenderer.sendSync('stop vm')
+  return;
+}
+
+function restartVm() {
+  navigateTo('editor.html');
+  ipcRenderer.sendSync('restart vm')
   return;
 }
 
@@ -135,6 +143,10 @@ ipcRenderer.on('start vm res', function(event, arg) {
 });
 
 ipcRenderer.on('stop vm res', function(event, arg) {
+  //alert(arg);
+});
+
+ipcRenderer.on('restart vm res', function(event, arg) {
   //alert(arg);
 });
 

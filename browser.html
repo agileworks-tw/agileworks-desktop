@@ -4,8 +4,10 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="browser.css">
     <script src="browser.js"></script>
+  </head>
   <body>
     <div id="controls">
+      <!--
       <button id="home" title="Go Home">
         <div class="icon">
           <img src="images/home.png" alt="home" />
@@ -30,23 +32,22 @@
         </div>
         Stop
       </button>
-      <button id="about" title="About">
+    -->
+      <button id="restartVM" title="重新開始一個新的練習" onclick="restartVm()">
+        <div class="icon">
+          <img src="images/reload.png" alt="restartVM" />
+        </div>
+        重新開始
+      </button>
+      <button id="about" title="About" onclick="alert('React Native Dojo 由創科資訊提供 Modern Web 2016 學員使用，請用臉書搜尋「創科資訊」訂閱最新的學習新知。');">
         <div class="icon">
           <img src="images/about.png" alt="about" />
         </div>
-        About
+        關於我們
       </button>
-      <div style="width:100%;text-align:right;margin-right:50px;">
-        <div style="float:right; text-align:left">
-          <h3 style="line-height:160%;padding:0;margin:0;font-size:22px;">AgileWorks</h3>
-          <span style="font-size: 15px; font-family: sans; letter-spacing: 1px;">
-            軟體設計專業教學團隊
-          </span>
-        </div>
-        <div class="logo">
-          <img src="images/logo.png" alt="logo" />
-        </div>
-
+      <div class="heading">
+        <img src="images/react-logo-1000-transparent.png" alt="react" />
+        React Native Dojo
       </div>
     </div>
 
@@ -70,7 +71,8 @@
       </form>
     </div>
 
-    <webview src="editor.html" disablewebsecurity></webview>
+
+    <webview src="editor.html" disablewebsecurity style="display:inline-flex;"></webview>
 
     <div id="sad-webview">
       <div id="sad-webview-icon">&#9762;</div>

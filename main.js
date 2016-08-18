@@ -6,14 +6,26 @@ app.on('window-all-closed', function() {
   app.quit();
 });
 
+function startVM() {
+  var cmd = 'VBoxManage startvm AgileWorksReactNative --type headless';
+  exec(cmd, function(error, stdout, stderr) {
+    console.log(error, stdout, stderr);
+  });
+}
+
 app.on('ready', function() {
   mainWindow = new BrowserWindow({
     width: 1024,
     height: 768,
-    title: "AgileWorks - React Native"
+    minWidth: 1024,
+    minHeight: 768,
+    resizable: true,
+    title: "React Native Dojo - AgileWorks"
   });
   mainWindow.loadURL('file://' + __dirname + '/browser.html');
   // mainWindow.openDevTools();
+
+  startVM();
 });
 
 
@@ -56,6 +68,29 @@ ipcMain.on('stop vm', function(event, arg) {
       result = 'vm stop sucess'
 
     event.sender.send('stop vm res', result);
+
+  });
+  event.returnValue = 'success';
+  return;
+});
+
+ipcMain.on('restart vm', function(event, arg) {
+
+  var cmd = 'VBoxManage controlvm AgileWorksReactNative reset';
+
+  exec(cmd, function(error, stdout, stderr) {
+    console.log(error, stdout, stderr);
+
+    var result = '';
+
+    if(stderr !== '') {
+      result = stderr;
+    }
+    else {
+      result = 'vm restart sucess'
+    }
+
+    event.sender.send('restart vm res', result);
 
   });
   event.returnValue = 'success';

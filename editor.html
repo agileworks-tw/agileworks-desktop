@@ -6,13 +6,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="icon" href="favicon.ico" />
 <title>Editor</title>
+<style type="text/css">
+body {
+  background: #202020;
+  color: #aaa;
+}
+</style>
 </head>
 <body>
 
 <div class="container">
-<div style="text-align:center;margin-top:100px;">
-<p>Please press "Start" button.</p>
-</div>
+  <div style="text-align:center;">
+    <p style="margin-top:250px;letter-spacing:1px;font-size: 32px;">系統正在啟動中，請稍候⋯</p>
+    <p style="margin-top:200px;">AgileWorks VM 由「創科資訊」教學團隊製作</p>
+    <p style="font-family:monospace;">trunk.studio/agileworks</p>
+  </div>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -20,7 +28,7 @@
 <script src="http://localhost:9083/static/mini_require.js"></script>
 <script type="text/javascript">
 if (typeof miniRequire != 'undefined') {
-  setTimeout(function() { location.href = 'http://localhost:9083/ide.html'; }, 1000);
+  setTimeout(function() { location.href = 'http://localhost:9083/ide.html'; }, 3000);
 }
 else {
   setTimeout(function() { location.reload(); }, 1000);
