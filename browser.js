@@ -138,16 +138,16 @@ function restartVm() {
   return;
 }
 
-ipcRenderer.on('start vm res', function(event, arg) {
-  //alert(arg);
-});
-
-ipcRenderer.on('stop vm res', function(event, arg) {
-  //alert(arg);
-});
-
-ipcRenderer.on('restart vm res', function(event, arg) {
-  //alert(arg);
-});
+// ipcRenderer.on('start vm res', function(event, arg) {
+//   //alert(arg);
+// });
+//
+// ipcRenderer.on('stop vm res', function(event, arg) {
+//   //alert(arg);
+// });
+//
+// ipcRenderer.on('restart vm res', function(event, arg) {
+//   //alert(arg);
+// });
 
 require('electron').webFrame.setZoomLevelLimits(1, 1)

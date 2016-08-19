@@ -7,7 +7,7 @@ app.on('window-all-closed', function() {
 });
 
 function startVM() {
-  var cmd = 'VBoxManage startvm AgileWorksReactNative --type headless';
+  var cmd = 'VBoxManage startvm agileworks-vm --type headless';
   exec(cmd, function(error, stdout, stderr) {
     console.log(error, stdout, stderr);
   });
@@ -34,10 +34,9 @@ const exec = require('child_process').exec;
 
 ipcMain.on('start vm', function(event, arg) {
 
-  var cmd = 'VBoxManage startvm AgileWorksReactNative --type headless';
+  var cmd = 'VBoxManage startvm agileworks-vm --type headless';
 
   exec(cmd, function(error, stdout, stderr) {
-    console.log(error, stdout, stderr);
     var result = '';
 
     if(stderr !== '')
@@ -46,19 +45,17 @@ ipcMain.on('start vm', function(event, arg) {
       result = 'vm start sucess'
 
     event.sender.send('start vm res', result);
+    event.returnValue = result;
 
   });
-
-  event.returnValue = 'success';
   return;
 });
 
 ipcMain.on('stop vm', function(event, arg) {
 
-  var cmd = 'VBoxManage controlvm AgileWorksReactNative acpipowerbutton';
+  var cmd = 'VBoxManage controlvm agileworks-vm acpipowerbutton';
 
   exec(cmd, function(error, stdout, stderr) {
-    console.log(error, stdout, stderr);
 
     var result = '';
 
@@ -67,16 +64,13 @@ ipcMain.on('stop vm', function(event, arg) {
     else
       result = 'vm stop sucess'
 
-    event.sender.send('stop vm res', result);
-
+    event.returnValue = result;
   });
-  event.returnValue = 'success';
-  return;
 });
 
 ipcMain.on('restart vm', function(event, arg) {
 
-  var cmd = 'VBoxManage controlvm AgileWorksReactNative reset';
+  var cmd = 'VBoxManage controlvm agileworks-vm reset';
 
   exec(cmd, function(error, stdout, stderr) {
     console.log(error, stdout, stderr);
@@ -90,9 +84,9 @@ ipcMain.on('restart vm', function(event, arg) {
       result = 'vm restart sucess'
     }
 
-    event.sender.send('restart vm res', result);
-
+    // event.sender.send('restart vm res', result);
+    return event.returnValue = 'success';
   });
-  event.returnValue = 'success';
-  return;
+
+
 });
