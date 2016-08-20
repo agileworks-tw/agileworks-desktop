@@ -1,5 +1,5 @@
 {
-  "name": "Browser-Sample",
+  "name": "agileworks-desktop",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
@@ -7,6 +7,7 @@
     "build": "electron-packager . --all --overwrite"
   },
   "devDependencies": {
+    "electron-packager": "^7.6.0",
     "electron-prebuilt": "^0.36.0"
   }
 }
