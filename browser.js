@@ -39,7 +39,7 @@ onload = function() {
 };
 
 function navigateTo(url) {
-  resetExitedState();
+  //resetExitedState();
   document.querySelector('webview').src = url;
 }
 
@@ -122,19 +122,19 @@ const ipcRenderer = require('electron').ipcRenderer;
 
 function startVm() {
   navigateTo('editor.html');
-  ipcRenderer.sendSync('start vm')
+  ipcRenderer.send('start vm')
   return;
 }
 
 function stopVm() {
   navigateTo('editor.html');
-  ipcRenderer.sendSync('stop vm')
+  ipcRenderer.send('stop vm')
   return;
 }
 
 function restartVm() {
   navigateTo('editor.html');
-  ipcRenderer.sendSync('restart vm')
+  ipcRenderer.send('restart vm')
   return;
 }
 
